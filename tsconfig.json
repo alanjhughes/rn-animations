@@ -1,6 +1,11 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "eslint-config-react-native-ahughes/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "baseUrl": ".",
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "paths": {
+      "*": ["app/*"],
+      "assets": ["assets/*"]
+    }
   }
 }

@@ -1,0 +1,15 @@
+export const palette = {
+  black: "#1d1d1d",
+  white: "#ffffff",
+  offWhite: "#e6e6e6",
+  brandRed: "#D12528",
+  brandDarkRed: "#601C1D",
+  brandBlue: "#294667",
+  lightHighlight: "#51E3D3",
+  darkHighlight: "#1DAA91",
+  brandGreen: "#217914",
+  lightGrey: "#939AA4",
+  lighterGrey: "#CDD4DA",
+  grey: "rgba(0, 0, 0, 0.5)",
+  red: "#dd3333",
+};
