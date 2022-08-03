@@ -2,7 +2,7 @@ export const palette = {
   black: "#1d1d1d",
   white: "#ffffff",
   offWhite: "#e6e6e6",
-  brandRed: "#D12528",
+  BG: "#464655",
   brandDarkRed: "#601C1D",
   brandBlue: "#294667",
   lightHighlight: "#51E3D3",

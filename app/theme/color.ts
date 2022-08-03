@@ -4,7 +4,7 @@ export const color = {
   palette,
   transparent: "rgba(0, 0, 0, 0)",
   background: palette.offWhite,
-  primary: palette.brandRed,
+  primary: palette.BG,
   primaryDark: palette.brandDarkRed,
   brandGreen: palette.brandGreen,
   secondary: palette.brandBlue,

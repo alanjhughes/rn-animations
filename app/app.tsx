@@ -8,6 +8,8 @@ import * as storage from "utils/storage";
 import { AppNavigator, useNavigationPersistence } from "navigators";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { enableFreeze } from "react-native-screens";
+import { useEffect } from "react";
+import { initFonts } from "theme/fonts";
 
 enableFreeze(true);
 
@@ -19,6 +21,12 @@ function App() {
     onNavigationStateChange,
     isRestored: isNavigationStateRestored,
   } = useNavigationPersistence(storage, NAVIGATION_PERSISTENCE_KEY);
+
+  useEffect(() => {
+    (async () => {
+      await initFonts();
+    })();
+  }, []);
 
   if (!isNavigationStateRestored) return null;
 
