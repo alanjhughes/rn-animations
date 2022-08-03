@@ -9,7 +9,7 @@ import { cardData } from "./data";
 import { PlaceInfo } from "./PlaceInfo";
 
 const { width, height } = Dimensions.get("screen");
-const IMAGE_HEIGHT = height * 0.7;
+const IMAGE_HEIGHT = height * 0.65;
 interface ContentProps {}
 
 export function Content({}: ContentProps) {
@@ -20,7 +20,7 @@ export function Content({}: ContentProps) {
   const bgStyle = useAnimatedStyle(() => {
     const x = animatedSensor.sensor.value.qx;
     return {
-      transform: [{ translateX: withTiming(x * 100, { duration: 100 }) }],
+      transform: [{ translateX: withTiming(x * 120, { duration: 100 }) }],
     };
   });
 
@@ -35,6 +35,7 @@ export function Content({}: ContentProps) {
     <FlatList
       data={cardData}
       horizontal
+      style={{ marginVertical: 20 }}
       showsHorizontalScrollIndicator={false}
       snapToInterval={width}
       decelerationRate="fast"
