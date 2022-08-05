@@ -10,6 +10,7 @@ import { PlaceInfo } from "./PlaceInfo";
 
 const { width, height } = Dimensions.get("screen");
 const IMAGE_HEIGHT = height * 0.65;
+
 interface ContentProps {}
 
 export function Content({}: ContentProps) {
@@ -20,14 +21,14 @@ export function Content({}: ContentProps) {
   const bgStyle = useAnimatedStyle(() => {
     const x = animatedSensor.sensor.value.qx;
     return {
-      transform: [{ translateX: withTiming(x * 120, { duration: 100 }) }],
+      transform: [{ translateX: withTiming(x * 100, { duration: 100 }) }],
     };
   });
 
   const fgStyle = useAnimatedStyle(() => {
     const x = animatedSensor.sensor.value.qx;
     return {
-      transform: [{ translateX: withTiming(-x * 50, { duration: 50 }) }],
+      transform: [{ translateX: withTiming(-x * 40, { duration: 50 }) }],
     };
   });
 
@@ -43,10 +44,18 @@ export function Content({}: ContentProps) {
       renderItem={({ item }) => {
         return (
           <View style={styles.container}>
-            <View style={styles.inner}>
+            <View style={styles.item}>
               <PlaceInfo name={item.name} />
-              <Animated.Image source={item.bg} style={[styles.bg, bgStyle]} />
-              <Animated.Image source={item.fg} style={[styles.fg, fgStyle]} />
+              <Animated.Image
+                source={item.bg}
+                style={[styles.bg, bgStyle]}
+                resizeMode="stretch"
+              />
+              <Animated.Image
+                source={item.fg}
+                style={[styles.fg, fgStyle]}
+                resizeMode="stretch"
+              />
             </View>
           </View>
         );
@@ -60,29 +69,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width,
   },
-  inner: {
+  item: {
     padding: 10,
     alignItems: "center",
     overflow: "hidden",
-    width: width * 0.85,
+    width: width * 0.8,
     height: IMAGE_HEIGHT,
     borderRadius: 20,
     marginTop: 20,
   },
   bg: {
     position: "absolute",
-    resizeMode: "cover",
     width: width * 1.2,
     height: IMAGE_HEIGHT,
     zIndex: -10,
-    top: 0,
   },
   fg: {
-    resizeMode: "cover",
     width,
     height: IMAGE_HEIGHT,
     position: "absolute",
-    bottom: 0,
     zIndex: -1,
   },
 });
