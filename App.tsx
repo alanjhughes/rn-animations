@@ -1,5 +1,10 @@
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Root from "./app/root";
 
 export default function App() {
-  return <Root />;
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Root />
+    </GestureHandlerRootView>
+  );
 }
