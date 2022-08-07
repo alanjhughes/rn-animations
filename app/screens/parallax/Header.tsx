@@ -6,7 +6,7 @@ interface HeaderProps {}
 export function Header({}: HeaderProps) {
   return (
     <View style={styles.header}>
-      <Feather name="menu" size={24} color="white" />
+      <Feather name="menu" size={20} color="white" />
       <Ionicons name="person-outline" size={20} color="white" />
     </View>
   );

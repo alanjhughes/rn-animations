@@ -5,6 +5,7 @@ export type RootNavigatorParamList = {
   listAnimation: undefined;
   sensor: undefined;
   parallax: undefined;
+  drag: undefined;
 };
 
 export type RootStackNavProps<T extends keyof RootNavigatorParamList> =

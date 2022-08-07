@@ -3,10 +3,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { navigationRef, useBackButtonHandler } from "./navigation-utilities";
 import { RootNavigatorParamList } from "./types";
-import { ListAnimationScreen } from "screens/listAnimations/ListAnimationScreen";
-import { RootScreen } from "screens/root/RootScreen";
-import { AnimatedSensor } from "screens/sensor/AnimatedSensor";
-import { ParallaxScreen } from "screens/parallax/ParallaxScreen";
+import {
+  RootScreen,
+  AnimatedSensor,
+  ParallaxScreen,
+  ListAnimationScreen,
+} from "screens";
+import { DragGestureScreen } from "screens/drag/DragGestureScreen";
 
 const Stack = createNativeStackNavigator<RootNavigatorParamList>();
 
@@ -23,6 +26,7 @@ function AppStack() {
       />
       <Stack.Screen name="listAnimation" component={ListAnimationScreen} />
       <Stack.Screen name="sensor" component={AnimatedSensor} />
+      <Stack.Screen name="drag" component={DragGestureScreen} />
       <Stack.Screen name="parallax" component={ParallaxScreen} />
     </Stack.Navigator>
   );
