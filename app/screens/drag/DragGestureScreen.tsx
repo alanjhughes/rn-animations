@@ -13,7 +13,6 @@ import { Gesture, GestureDetector } from "react-native-gesture-handler";
 interface DragGestureScreenProps {}
 
 export function DragGestureScreen({}: DragGestureScreenProps) {
-  const start = useSharedValue({ x: 0, y: 0 });
   const offset = useSharedValue({ x: 0, y: 0 });
   const pressed = useSharedValue(false);
 
@@ -27,16 +26,12 @@ export function DragGestureScreen({}: DragGestureScreenProps) {
     })
     .onUpdate(e => {
       offset.value = {
-        x: e.translationX + start.value.x,
-        y: e.translationY + start.value.y,
+        x: e.translationX,
+        y: e.translationY,
       };
     })
     .onEnd(() => {
       offset.value = { x: 0, y: 0 };
-      start.value = {
-        x: offset.value.x,
-        y: offset.value.y,
-      };
     })
     .onFinalize(() => {
       pressed.value = false;
