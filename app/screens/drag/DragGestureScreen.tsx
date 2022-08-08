@@ -38,9 +38,19 @@ export function DragGestureScreen({}: DragGestureScreenProps) {
   const animatedStyle = useAnimatedStyle(() => {
     return {
       transform: [
-        { translateX: withSpring(offset.value.x) },
-        { translateY: withSpring(offset.value.y) },
-        { scale: withSpring(pressed.value ? 1.2 : 1) },
+        {
+          translateX: withSpring(offset.value.x, {
+            stiffness: 250,
+            damping: 10,
+          }),
+        },
+        {
+          translateY: withSpring(offset.value.y, {
+            stiffness: 250,
+            damping: 10,
+          }),
+        },
+        { scale: withSpring(pressed.value ? 1.3 : 1) },
       ],
       backgroundColor: pressed.value ? "red" : "blue",
     };
