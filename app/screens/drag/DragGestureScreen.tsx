@@ -1,9 +1,12 @@
 import { View, StyleSheet } from "react-native";
 import { Screen } from "components/screen/screen";
 import Animated, {
+  interpolateColor,
   useAnimatedStyle,
+  useDerivedValue,
   useSharedValue,
   withSpring,
+  withTiming,
 } from "react-native-reanimated";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 
@@ -13,6 +16,10 @@ export function DragGestureScreen({}: DragGestureScreenProps) {
   const start = useSharedValue({ x: 0, y: 0 });
   const offset = useSharedValue({ x: 0, y: 0 });
   const pressed = useSharedValue(false);
+
+  const progress = useDerivedValue(() => {
+    return withTiming(pressed.value ? 1 : 0);
+  });
 
   const gesture = Gesture.Pan()
     .onBegin(() => {
@@ -36,6 +43,12 @@ export function DragGestureScreen({}: DragGestureScreenProps) {
     });
 
   const animatedStyle = useAnimatedStyle(() => {
+    const backgroundColor = interpolateColor(
+      progress.value,
+      [0, 1],
+      ["blue", "red"],
+    );
+
     return {
       transform: [
         {
@@ -50,9 +63,9 @@ export function DragGestureScreen({}: DragGestureScreenProps) {
             damping: 10,
           }),
         },
-        { scale: withSpring(pressed.value ? 1.3 : 1) },
+        { scale: withSpring(pressed.value ? 1.2 : 1) },
       ],
-      backgroundColor: pressed.value ? "red" : "blue",
+      backgroundColor,
     };
   });
 
