@@ -1,4 +1,4 @@
-import { Image, Dimensions, StyleSheet } from "react-native";
+import { Image, Dimensions, StyleSheet, Platform } from "react-native";
 import { Screen } from "components/screen/screen";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Animated, {
@@ -7,8 +7,13 @@ import Animated, {
 } from "react-native-reanimated";
 import { UserItem, SPACING } from "./UserItem";
 import { data } from "data/userList/data";
+import { FlashList } from "@shopify/flash-list";
 
 const { width, height } = Dimensions.get("screen");
+
+const AnimatedList = Animated.createAnimatedComponent(
+  FlashList<typeof data[0]>,
+);
 
 interface ListAnimationProps {}
 
@@ -29,9 +34,13 @@ export function ListAnimationScreen({}: ListAnimationProps) {
         style={{ width, height, ...StyleSheet.absoluteFillObject }}
         blurRadius={15}
       />
-      <Animated.FlatList
+      <AnimatedList
         data={data}
-        contentContainerStyle={{ padding: SPACING, paddingTop: insets.top }}
+        estimatedItemSize={100}
+        contentContainerStyle={{
+          paddingTop: Platform.OS === "ios" ? insets.top : SPACING,
+          paddingBottom: Platform.OS === "ios" ? insets.bottom : SPACING,
+        }}
         showsVerticalScrollIndicator={false}
         onScroll={onScroll}
         scrollEventThrottle={16}

@@ -13,8 +13,8 @@ import { Gesture, GestureDetector } from "react-native-gesture-handler";
 interface DragGestureScreenProps {}
 
 export function DragGestureScreen({}: DragGestureScreenProps) {
-  const offset = useSharedValue({ x: 0, y: 0 });
   const pressed = useSharedValue(false);
+  const offset = useSharedValue({ x: 0, y: 0 });
 
   const progress = useDerivedValue(() => {
     return withTiming(pressed.value ? 1 : 0);

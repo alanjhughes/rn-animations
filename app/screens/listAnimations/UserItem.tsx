@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(256, 256, 256, 0.6)",
     flexDirection: "row",
     padding: SPACING,
+    marginHorizontal: SPACING,
     borderRadius: 10,
     marginBottom: SPACING,
     alignItems: "center",
