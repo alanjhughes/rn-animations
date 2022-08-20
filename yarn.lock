@@ -1918,10 +1918,10 @@
     recyclerlistview "4.0.1"
     tslib "2.4.0"
 
-"@shopify/react-native-skia@0.1.139":
-  version "0.1.139"
-  resolved "https://registry.yarnpkg.com/@shopify/react-native-skia/-/react-native-skia-0.1.139.tgz#7d390cd4871cca64caf9d35f9743620c571c60be"
-  integrity sha512-p5ZEb1iYlPbpdjWoQ9hBFML29lp77hnlJAdyR49C4S3h9Oe/Gv6B35c5LKshRE2w6B+xLM6ZApl8PSjll5TjDQ==
+"@shopify/react-native-skia@0.1.141":
+  version "0.1.141"
+  resolved "https://registry.yarnpkg.com/@shopify/react-native-skia/-/react-native-skia-0.1.141.tgz#6af1163785ce8274eb4924e5c46673cd87e343d2"
+  integrity sha512-jiCSsa930y7i1t4dwgQcD4+Z0/BMN4+NIdFsyzagFrr4EBENO9/ECFDGVRvchUD2cn/NSZwtHq83PiqQjY6Agg==
   dependencies:
     canvaskit-wasm "^0.35.0"
     react-reconciler "^0.26.2"
@@ -3745,40 +3745,40 @@ expo-constants@~13.2.2, expo-constants@~13.2.3:
     "@expo/config" "~7.0.0"
     uuid "^3.3.2"
 
-expo-dev-client@~1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/expo-dev-client/-/expo-dev-client-1.1.1.tgz#59018ec5a0657f66812abeb65e8aebb8ebf987ea"
-  integrity sha512-62/QX+tfdGfth4XKtE0zYUHPlW1sEWbY+aFLk0Wt3xZF0Y2tb1I6gAU68X3nSKNueZDPOAgjfG2uyyyOEgq9mw==
+expo-dev-client@~1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/expo-dev-client/-/expo-dev-client-1.2.1.tgz#54eb6160d1b512f38e9832f41a10c5223aa81269"
+  integrity sha512-LKFfReJbUDF3r3cSjt4PLmykKsfMonT1kdCc1Cepz82/btMzL/RASnRYjk7eGd+fcq06lethEQ+w2MLo/70hDQ==
   dependencies:
     "@expo/config-plugins" "~5.0.0"
-    expo-dev-launcher "1.1.1"
-    expo-dev-menu "1.1.1"
-    expo-dev-menu-interface "0.7.1"
+    expo-dev-launcher "1.2.1"
+    expo-dev-menu "1.2.1"
+    expo-dev-menu-interface "0.7.2"
     expo-manifests "~0.3.0"
     expo-updates-interface "~0.7.0"
 
-expo-dev-launcher@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/expo-dev-launcher/-/expo-dev-launcher-1.1.1.tgz#287bb4228fdb7e0e1688543e0963eaa84af55e4c"
-  integrity sha512-bZyhcVKI3r+d46wx3CfF5mG3fn01/mpUeDEcqfAOp9lEV0/NijbBiA+WzdHyK+mGf8z3igI7g7BuOyCYGLo9nw==
+expo-dev-launcher@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/expo-dev-launcher/-/expo-dev-launcher-1.2.1.tgz#4270d1b67a6b6e9d7f0896eecca899175787664a"
+  integrity sha512-q1BBnC69mTlbpHpiaezoHJ5rQgkvdvl6NH9rNSrg0tUfNRMNLDhjHwQWSpDGGIww7rVJ354ysjQp8E35OKOEJw==
   dependencies:
     "@expo/config-plugins" "~5.0.0"
-    expo-dev-menu "1.1.1"
+    expo-dev-menu "1.2.1"
     resolve-from "^5.0.0"
     semver "^7.3.5"
 
-expo-dev-menu-interface@0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/expo-dev-menu-interface/-/expo-dev-menu-interface-0.7.1.tgz#fa3a5078b2be0abcb0a054c008544bb2b015fd2e"
-  integrity sha512-EeG6ymydrr/DWy83wQY4uSToVAVLYeOIXc8UH00cpWqYTQRUK7BAuloEItW9/nOrRXJDU6nalSOje5n8kC/BgA==
+expo-dev-menu-interface@0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/expo-dev-menu-interface/-/expo-dev-menu-interface-0.7.2.tgz#2198d014bcbe11335225cc3f100226195b441bc4"
+  integrity sha512-Ym0IFsgBj9bdInjRcxv6xfczdTCKfPKUAsLZ1sD5twpOs7oBViMnTC0+KTGkkYHG4EapWbu9yApPmbV3N10Zcg==
 
-expo-dev-menu@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/expo-dev-menu/-/expo-dev-menu-1.1.1.tgz#c3822cccdefa431b8b86511d070aa9e844cbcec6"
-  integrity sha512-13YOkWmhvQVHuKRJsPIpdo2yWxr+mPneENu5VHsBvAL9WKVh+4KwAMJ35YM7LAoV0VCxxZmcehIQ30koC54DZg==
+expo-dev-menu@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/expo-dev-menu/-/expo-dev-menu-1.2.1.tgz#8325e5787a005663926e3b95d0f59e0fd6fa77b2"
+  integrity sha512-QurTAJitgIIXQKsZCEW+aY4y3RZFFR0ygP17p1odeoiCwsxKnoIkksKGOL46sdcLzONiVGZBu6z58Mg2JymfIQ==
   dependencies:
     "@expo/config-plugins" "~5.0.0"
-    expo-dev-menu-interface "0.7.1"
+    expo-dev-menu-interface "0.7.2"
     semver "^7.3.5"
 
 expo-error-recovery@~3.2.0:
