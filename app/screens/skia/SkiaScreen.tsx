@@ -1,27 +1,90 @@
-import { Canvas, Circle, Group } from "@shopify/react-native-skia";
-import { StyleSheet } from "react-native";
+import {
+  Canvas,
+  Group,
+  runTiming,
+  SweepGradient,
+  useTouchHandler,
+  useValue,
+  vec,
+} from "@shopify/react-native-skia";
+import { StyleSheet, View } from "react-native";
 import { Screen } from "components/screen/screen";
+import {} from "react-native-reanimated";
+import {
+  CANVAS_HEIGHT,
+  PADDING,
+  SCREEN_WIDTH,
+  SQUARES_HORIZONTAL,
+  SQUARES_VERTICAL,
+  SQUARE_CONTAINER_SIZE,
+  SQUARE_SIZE,
+} from "./constants";
+import { RoundedItem } from "./RoundedItem";
 
 interface SkiaScreenProps {}
 
 export function SkiaScreen({}: SkiaScreenProps) {
-  const size = 256;
-  const r = size * 0.33;
+  const touchedPoint = useValue<{ x: number; y: number } | null>(null);
+
+  const progress = useValue(0);
+
+  const onTouch = useTouchHandler({
+    onStart: e => {
+      runTiming(progress, 1, { duration: 300 });
+      touchedPoint.current = { x: e.x, y: e.y };
+    },
+    onActive: e => {
+      touchedPoint.current = { x: e.x, y: e.y };
+    },
+    onEnd: () => {
+      runTiming(progress, 0, { duration: 300 });
+      touchedPoint.current = null;
+    },
+  });
+
   return (
     <Screen noSafeArea>
-      <Canvas style={styles.canvas}>
-        <Group blendMode="multiply">
-          <Circle cx={r} cy={r} r={r} color="cyan" />
-          <Circle cx={size - r} cy={r} r={r} color="magenta" />
-          <Circle cx={size / 2} cy={size - r} r={r} color="yellow" />
-        </Group>
-      </Canvas>
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          flex: 1,
+          backgroundColor: "black",
+        }}
+      >
+        <Canvas style={styles.canvas} onTouch={onTouch}>
+          <Group>
+            {Array(SQUARES_HORIZONTAL)
+              .fill(0)
+              .map((_, i) =>
+                Array(SQUARES_VERTICAL)
+                  .fill(0)
+                  .map((_, j) => (
+                    <RoundedItem
+                      progress={progress}
+                      point={touchedPoint}
+                      key={`i${i}-j${j}`}
+                      x={i * SQUARE_CONTAINER_SIZE + PADDING / 2}
+                      y={j * SQUARE_CONTAINER_SIZE + PADDING / 2}
+                      width={SQUARE_SIZE}
+                      height={SQUARE_SIZE}
+                    />
+                  )),
+              )}
+            <SweepGradient
+              c={vec(SCREEN_WIDTH / 2, CANVAS_HEIGHT / 2)}
+              colors={["cyan", "magenta", "yellow", "cyan"]}
+            />
+          </Group>
+        </Canvas>
+      </View>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
   canvas: {
-    flex: 1,
+    height: CANVAS_HEIGHT,
+    width: SCREEN_WIDTH,
   },
 });
