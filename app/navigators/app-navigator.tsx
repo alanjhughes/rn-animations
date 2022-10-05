@@ -8,9 +8,10 @@ import {
   AnimatedSensor,
   ParallaxScreen,
   ListAnimationScreen,
+  DragGestureScreen,
+  LegendStateScreen,
+  SkiaScreen,
 } from "screens";
-import { DragGestureScreen } from "screens/drag/DragGestureScreen";
-import { SkiaScreen } from "screens/skia/SkiaScreen";
 
 const Stack = createNativeStackNavigator<RootNavigatorParamList>();
 
@@ -30,6 +31,7 @@ function AppStack() {
       <Stack.Screen name="drag" component={DragGestureScreen} />
       <Stack.Screen name="parallax" component={ParallaxScreen} />
       <Stack.Screen name="skia" component={SkiaScreen} />
+      <Stack.Screen name="legend" component={LegendStateScreen} />
     </Stack.Navigator>
   );
 }

@@ -14,6 +14,7 @@ const screens: Screen[] = [
   { route: "parallax", displayName: "Parallax" },
   { route: "drag", displayName: "Drag Gesture" },
   { route: "skia", displayName: "Skia" },
+  { route: "legend", displayName: "Legend State" },
 ];
 
 interface RootScreenProps extends RootStackNavProps<"screens"> {}
