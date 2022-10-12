@@ -1653,10 +1653,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@legendapp/state@^0.18.8":
-  version "0.18.8"
-  resolved "https://registry.yarnpkg.com/@legendapp/state/-/state-0.18.8.tgz#67d87f77fafefefbc7a15f0d728d08d79c3d1a06"
-  integrity sha512-xDqTO380hOi9bdSCaFEGox7C9Kthr2ZtCzV6jNZ42Xrg2EywDePCl2hvQzbInyvOcIkFEuFWmLbTpsTX72LMjA==
+"@legendapp/state@^0.19.8":
+  version "0.19.8"
+  resolved "https://registry.yarnpkg.com/@legendapp/state/-/state-0.19.8.tgz#b3d49ca974755f4e110b244abd120f621b6f3cd0"
+  integrity sha512-Jaeg58AL4ey2nXuKvHYIIqm6e4FGGSP/fMGSVdjSoYi0birjT7i4apemAWzidKd2cCzHia4JgxuRRqkyIbzFuQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2220,9 +2220,9 @@
     wonka "^4.0.14"
 
 "@webgpu/types@^0.1.20":
-  version "0.1.21"
-  resolved "https://registry.yarnpkg.com/@webgpu/types/-/types-0.1.21.tgz#b181202daec30d66ccd67264de23814cfd176d3a"
-  integrity sha512-pUrWq3V5PiSGFLeLxoGqReTZmiiXwY3jRkIG5sLLKjyqNxrwm/04b4nw7LSmGWJcKk59XOM/YRTUwOzo4MMlow==
+  version "0.1.22"
+  resolved "https://registry.yarnpkg.com/@webgpu/types/-/types-0.1.22.tgz#e8d55bbf78f805d56a7f308339f51b7df580aebb"
+  integrity sha512-RrohwhHOIlczHX8q10AHYaegfeFIgQBLhHj4IKFWv8wb29annYz8jbl2citFiA1XbRnAU1ZozEvRJCiZZu4fkA==
 
 "@xmldom/xmldom@~0.7.0":
   version "0.7.5"

@@ -57,11 +57,13 @@ export function UserItem({ item, index, scrollY }: UserItemProps) {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: "rgba(256, 256, 256, 0.6)",
+    backgroundColor: "rgba(255, 255, 255, 0.6)",
     flexDirection: "row",
     padding: SPACING,
     marginHorizontal: SPACING,
     borderRadius: 10,
+    borderColor: "rgba(0,0,0,0.7)",
+    borderWidth: 1,
     marginBottom: SPACING,
     alignItems: "center",
     shadowColor: "#000",

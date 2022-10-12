@@ -8,6 +8,7 @@ import Animated, {
 import { UserItem, SPACING } from "./UserItem";
 import { data } from "data/userList/data";
 import { FlashList } from "@shopify/flash-list";
+import { User } from "./ListAnimation.types";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -27,6 +28,10 @@ export function ListAnimationScreen({}: ListAnimationProps) {
     },
   });
 
+  const renderItem = ({ item, index }: { item: User; index: number }) => (
+    <UserItem item={item} scrollY={scrollY} index={index} />
+  );
+
   return (
     <Screen noSafeArea>
       <Image
@@ -44,9 +49,7 @@ export function ListAnimationScreen({}: ListAnimationProps) {
         showsVerticalScrollIndicator={false}
         onScroll={onScroll}
         scrollEventThrottle={16}
-        renderItem={({ item, index }) => (
-          <UserItem item={item} index={index} scrollY={scrollY} />
-        )}
+        renderItem={renderItem}
       />
     </Screen>
   );
