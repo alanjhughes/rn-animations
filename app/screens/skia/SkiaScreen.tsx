@@ -3,7 +3,6 @@ import {
   Group,
   LinearGradient,
   runTiming,
-  SweepGradient,
   useTouchHandler,
   useValue,
   vec,
