@@ -1,6 +1,7 @@
 import {
   Canvas,
   Group,
+  LinearGradient,
   runTiming,
   SweepGradient,
   useTouchHandler,
@@ -20,6 +21,7 @@ import {
   SQUARE_SIZE,
 } from "./constants";
 import { RoundedItem } from "./RoundedItem";
+import { color } from "theme";
 
 interface SkiaScreenProps {}
 
@@ -71,9 +73,16 @@ export function SkiaScreen({}: SkiaScreenProps) {
                     />
                   )),
               )}
-            <SweepGradient
-              c={vec(SCREEN_WIDTH / 2, CANVAS_HEIGHT / 2)}
-              colors={["cyan", "magenta", "yellow", "cyan"]}
+            <LinearGradient
+              start={vec(0, 0)}
+              end={vec(SCREEN_WIDTH, CANVAS_HEIGHT)}
+              colors={[
+                color.system.systemCyan,
+                color.system.systemYellow,
+                color.system.systemMint,
+                color.system.systemPink,
+                color.system.systemPurple,
+              ]}
             />
           </Group>
         </Canvas>

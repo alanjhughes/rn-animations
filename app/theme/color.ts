@@ -1,7 +1,9 @@
 import { palette } from "./palette";
+import { system } from "./system";
 
 export const color = {
   palette,
+  system,
   transparent: "rgba(0, 0, 0, 0)",
   background: palette.offWhite,
   primary: palette.BG,
