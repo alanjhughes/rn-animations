@@ -41,10 +41,7 @@ export const RoundedItem = React.memo(
         distance.current * progress.current,
         [0, MAX_DISTANCE / 2],
         [1, 0],
-        {
-          extrapolateLeft: Extrapolate.CLAMP,
-          extrapolateRight: Extrapolate.CLAMP,
-        },
+        Extrapolate.CLAMP,
       );
     }, [distance, progress]);
 
