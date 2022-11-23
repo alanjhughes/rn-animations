@@ -12,6 +12,7 @@ import {
   LegendStateScreen,
   SkiaScreen,
 } from "screens";
+import { LottieScreen } from "screens/lottie/LottieScreen";
 
 const Stack = createNativeStackNavigator<RootNavigatorParamList>();
 
@@ -32,6 +33,7 @@ function AppStack() {
       <Stack.Screen name="parallax" component={ParallaxScreen} />
       <Stack.Screen name="skia" component={SkiaScreen} />
       <Stack.Screen name="legend" component={LegendStateScreen} />
+      <Stack.Screen name="lottie" component={LottieScreen} />
     </Stack.Navigator>
   );
 }
