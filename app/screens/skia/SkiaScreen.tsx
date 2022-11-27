@@ -1,3 +1,4 @@
+import { StyleSheet, View } from "react-native";
 import {
   Canvas,
   Group,
@@ -7,9 +8,9 @@ import {
   useValue,
   vec,
 } from "@shopify/react-native-skia";
-import { StyleSheet, View } from "react-native";
 import { Screen } from "components/screen/screen";
 import {} from "react-native-reanimated";
+import { color } from "theme";
 import {
   CANVAS_HEIGHT,
   PADDING,
@@ -20,7 +21,6 @@ import {
   SQUARE_SIZE,
 } from "./constants";
 import { RoundedItem } from "./RoundedItem";
-import { color } from "theme";
 
 interface SkiaScreenProps {}
 

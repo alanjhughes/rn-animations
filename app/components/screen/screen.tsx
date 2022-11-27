@@ -1,7 +1,7 @@
 import { Platform, ScrollView, StatusBar, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { ScreenProps } from "./screen.props";
 import { isNonScrolling, presets } from "./screen.presets";
+import { ScreenProps } from "./screen.props";
 
 const ios = Platform.OS === "ios";
 const defaultStatusBar = ios ? "dark-content" : "light-content";
