@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { color } from "theme";
 import { Screen } from "components/screen/screen";
@@ -16,6 +16,7 @@ export function ParallaxScreen({}: ParallaxScreenProps) {
       noSafeArea
       style={{ backgroundColor: color.primary }}
     >
+      <StatusBar hidden />
       <View style={{ paddingTop: insets.top }}>
         <Header />
         <Text style={styles.title}>Exclusive trips just for you</Text>
