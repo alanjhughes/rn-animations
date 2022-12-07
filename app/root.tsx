@@ -9,6 +9,7 @@ import { AppNavigator, useNavigationPersistence } from "navigators";
 import { enableFreeze } from "react-native-screens";
 import { useEffect, useState } from "react";
 import { initFonts } from "theme/fonts";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 enableFreeze(true);
 
@@ -33,10 +34,12 @@ function App() {
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <AppNavigator
-        initialState={initialNavigationState}
-        onStateChange={onNavigationStateChange}
-      />
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <AppNavigator
+          initialState={initialNavigationState}
+          onStateChange={onNavigationStateChange}
+        />
+      </GestureHandlerRootView>
     </SafeAreaProvider>
   );
 }

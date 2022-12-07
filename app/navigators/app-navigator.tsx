@@ -11,6 +11,7 @@ import {
   DragGestureScreen,
   LegendStateScreen,
   SkiaScreen,
+  CarouselScreen,
 } from "screens";
 import { LottieScreen } from "screens/lottie/LottieScreen";
 
@@ -34,6 +35,7 @@ function AppStack() {
       <Stack.Screen name="skia" component={SkiaScreen} />
       <Stack.Screen name="legend" component={LegendStateScreen} />
       <Stack.Screen name="lottie" component={LottieScreen} />
+      <Stack.Screen name="carousel" component={CarouselScreen} />
     </Stack.Navigator>
   );
 }

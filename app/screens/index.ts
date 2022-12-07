@@ -5,3 +5,4 @@ export * from "./root/RootScreen";
 export * from "./drag/DragGestureScreen";
 export * from "./skia/SkiaScreen";
 export * from "./state/LegendStateScreen";
+export * from "./carousel/CarouselScreen";

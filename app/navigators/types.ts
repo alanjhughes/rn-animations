@@ -9,6 +9,7 @@ export type RootNavigatorParamList = {
   skia: undefined;
   legend: undefined;
   lottie: undefined;
+  carousel: undefined;
 };
 
 export type RootStackNavProps<T extends keyof RootNavigatorParamList> =
