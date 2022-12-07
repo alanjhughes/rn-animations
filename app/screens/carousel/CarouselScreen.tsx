@@ -2,7 +2,6 @@ import { View, Image, StyleSheet, Dimensions, StatusBar } from "react-native";
 import { Screen } from "components/screen";
 import { imageUrls } from "./data";
 import Animated, {
-  useAnimatedRef,
   useAnimatedScrollHandler,
   useSharedValue,
 } from "react-native-reanimated";
@@ -17,7 +16,6 @@ interface CarouselScreenProps {}
 
 export function CarouselScreen({}: CarouselScreenProps) {
   const scrollX = useSharedValue(0);
-  const ref = useAnimatedRef<Animated.FlatList<string>>();
   const onScroll = useAnimatedScrollHandler(event => {
     scrollX.value = event.contentOffset.x;
   });
@@ -32,7 +30,6 @@ export function CarouselScreen({}: CarouselScreenProps) {
       </View>
       <Animated.FlatList
         data={imageUrls}
-        ref={ref}
         onScroll={onScroll}
         scrollEventThrottle={16}
         keyExtractor={(_, index) => `item-${index}`}
