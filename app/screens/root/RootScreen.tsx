@@ -17,6 +17,7 @@ const screens: Screen[] = [
   { route: "legend", displayName: "Legend State" },
   { route: "lottie", displayName: "Lottie" },
   { route: "carousel", displayName: "Carousel" },
+  { route: "toggle", displayName: "Toggle" },
 ];
 
 interface RootScreenProps extends RootStackNavProps<"screens"> {}

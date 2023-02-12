@@ -1,4 +1,10 @@
-import { Image, Dimensions, StyleSheet, Platform } from "react-native";
+import {
+  Image,
+  Dimensions,
+  StyleSheet,
+  Platform,
+  StatusBar,
+} from "react-native";
 import { Screen } from "components/screen/screen";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Animated, {
@@ -34,6 +40,7 @@ export function ListAnimationScreen({}: ListAnimationProps) {
 
   return (
     <Screen noSafeArea>
+      <StatusBar hidden />
       <Image
         source={require("assets/bgImage.jpeg")}
         style={{ width, height, ...StyleSheet.absoluteFillObject }}

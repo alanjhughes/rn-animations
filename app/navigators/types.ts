@@ -10,6 +10,7 @@ export type RootNavigatorParamList = {
   legend: undefined;
   lottie: undefined;
   carousel: undefined;
+  toggle: undefined;
 };
 
 export type RootStackNavProps<T extends keyof RootNavigatorParamList> =
