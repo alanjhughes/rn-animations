@@ -24,13 +24,13 @@ export function ToggleScreen({}: ToggleScreenProps) {
 
   const animatedContainer = useAnimatedStyle(() => {
     return {
-      width: width.value / 2,
+      width: width.value / 2 - PADDING / 2,
       height: height.value - PADDING,
       top: 4,
       transform: [
         {
           translateX: withTiming(
-            selectedTab.value === "one" ? PADDING / 2 : 143,
+            selectedTab.value === "one" ? PADDING / 2 : 148,
             {
               duration: 300,
               easing: Easing.inOut(Easing.ease),

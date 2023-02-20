@@ -9,7 +9,6 @@ import {
   vec,
 } from "@shopify/react-native-skia";
 import { Screen } from "components/screen/screen";
-import {} from "react-native-reanimated";
 import { color } from "theme";
 import {
   CANVAS_HEIGHT,
