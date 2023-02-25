@@ -1,8 +1,9 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import Animated, {
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
+import { Image } from "expo-image";
 import { User } from "./ListAnimation.types";
 
 export const SPACING = 10;

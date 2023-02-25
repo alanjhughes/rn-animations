@@ -7,6 +7,9 @@ import Animated, {
 } from "react-native-reanimated";
 import { cardData } from "./data";
 import { PlaceInfo } from "./PlaceInfo";
+import { Image } from "expo-image";
+
+const AnimatedImage = Animated.createAnimatedComponent(Image);
 
 const { width, height } = Dimensions.get("screen");
 const IMAGE_HEIGHT = height * 0.65;
@@ -46,12 +49,12 @@ export function Content({}: ContentProps) {
           <View style={styles.container}>
             <View style={styles.item}>
               <PlaceInfo name={item.name} />
-              <Animated.Image
+              <AnimatedImage
                 source={item.bg}
                 style={[styles.bg, bgStyle]}
                 resizeMode="stretch"
               />
-              <Animated.Image
+              <AnimatedImage
                 source={item.fg}
                 style={[styles.fg, fgStyle]}
                 resizeMode="stretch"

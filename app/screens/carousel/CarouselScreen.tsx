@@ -1,6 +1,7 @@
-import { View, Image, StyleSheet, Dimensions, StatusBar } from "react-native";
+import { View, StyleSheet, Dimensions, StatusBar } from "react-native";
 import { Screen } from "components/screen";
 import { imageUrls } from "./data";
+import { Image } from "expo-image";
 import Animated, {
   useAnimatedScrollHandler,
   useSharedValue,
