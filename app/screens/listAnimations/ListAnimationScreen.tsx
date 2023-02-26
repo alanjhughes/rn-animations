@@ -1,10 +1,5 @@
-import {
-  Image,
-  Dimensions,
-  StyleSheet,
-  Platform,
-  StatusBar,
-} from "react-native";
+import { Dimensions, StyleSheet, Platform, StatusBar } from "react-native";
+import { Image } from "expo-image";
 import { Screen } from "components/screen/screen";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Animated, {
