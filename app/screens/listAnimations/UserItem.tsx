@@ -67,12 +67,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: SPACING,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
   },
 });
