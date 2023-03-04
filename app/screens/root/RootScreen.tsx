@@ -18,6 +18,7 @@ const screens: Screen[] = [
   { route: "lottie", displayName: "Lottie" },
   { route: "carousel", displayName: "Carousel" },
   { route: "toggle", displayName: "Toggle" },
+  { route: "tabs", displayName: "Dynamic Tabs" },
 ];
 
 interface RootScreenProps extends RootStackNavProps<"screens"> {}

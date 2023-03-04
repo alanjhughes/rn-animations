@@ -13,6 +13,7 @@ import {
   SkiaScreen,
   CarouselScreen,
   ToggleScreen,
+  DynamicTabsScreen,
 } from "screens";
 import { LottieScreen } from "screens/lottie/LottieScreen";
 
@@ -38,6 +39,7 @@ function AppStack() {
       <Stack.Screen name="lottie" component={LottieScreen} />
       <Stack.Screen name="carousel" component={CarouselScreen} />
       <Stack.Screen name="toggle" component={ToggleScreen} />
+      <Stack.Screen name="tabs" component={DynamicTabsScreen} />
     </Stack.Navigator>
   );
 }

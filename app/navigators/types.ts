@@ -11,6 +11,7 @@ export type RootNavigatorParamList = {
   lottie: undefined;
   carousel: undefined;
   toggle: undefined;
+  tabs: undefined;
 };
 
 export type RootStackNavProps<T extends keyof RootNavigatorParamList> =
