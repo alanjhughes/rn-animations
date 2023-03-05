@@ -3,8 +3,8 @@ import {
   View,
   Text,
   StyleSheet,
-  Dimensions,
   LayoutRectangle,
+  useWindowDimensions,
 } from "react-native";
 import Animated, {
   interpolate,
@@ -14,7 +14,6 @@ import Animated, {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { tabs } from "./data";
 
-const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 const PADDING = 20;
 
 interface TabBarProps {
@@ -23,11 +22,12 @@ interface TabBarProps {
 
 export function TabBar({ offset }: TabBarProps) {
   const { top } = useSafeAreaInsets();
+  const { width: SCREEN_WIDTH } = useWindowDimensions();
   const [tabDimensions, setTabDimensions] = useState<LayoutRectangle[]>([]);
 
   const animatedStyle = useAnimatedStyle(() => {
     if (tabDimensions.length !== tabs.length) {
-      return { width: 0, transform: [{ translateX: 0 }] };
+      return { width: 0 };
     }
 
     const inputRange = tabDimensions.map((_, index) => index);
@@ -52,7 +52,7 @@ export function TabBar({ offset }: TabBarProps) {
   });
 
   return (
-    <View style={[styles.tabBar, { top }]}>
+    <View style={[styles.tabBar, { top, width: SCREEN_WIDTH }]}>
       {tabs.map((tab, index) => (
         <Text
           onLayout={e => {
@@ -74,7 +74,6 @@ export function TabBar({ offset }: TabBarProps) {
 const styles = StyleSheet.create({
   tabBar: {
     position: "absolute",
-    width: SCREEN_WIDTH,
     left: 0,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -83,12 +82,11 @@ const styles = StyleSheet.create({
   },
   tab: {
     color: "white",
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: "bold",
   },
   indicator: {
     height: 5,
-    width: 34,
     backgroundColor: "white",
     position: "absolute",
     bottom: -10,

@@ -1,13 +1,13 @@
-import { View, StyleSheet, Dimensions } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
 import { Screen } from "components/screen";
 import { Image } from "expo-image";
+import { StatusBar } from "expo-status-bar";
 import Animated, {
   useAnimatedScrollHandler,
   useSharedValue,
 } from "react-native-reanimated";
-import { TabBar } from "./TabBar";
 import { tabs } from "./data";
-import { StatusBar } from "expo-status-bar";
+import { TabBar } from "./TabBar";
 
 const { width, height } = Dimensions.get("screen");
 
