@@ -8,9 +8,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-interface AnimatedSensorProps {}
-
-export function AnimatedSensor({}: AnimatedSensorProps) {
+export function AnimatedSensor() {
   const insets = useSafeAreaInsets();
   const animatedSensor = useAnimatedSensor(SensorType.ROTATION, {
     interval: 10,

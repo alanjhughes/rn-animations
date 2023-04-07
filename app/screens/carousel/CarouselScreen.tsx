@@ -41,7 +41,11 @@ export function CarouselScreen({}: CarouselScreenProps) {
         renderItem={({ item }) => (
           <View style={styles.item}>
             <View style={styles.imageContainer}>
-              <Image source={{ uri: item }} style={styles.image} />
+              <Image
+                source={{ uri: item }}
+                style={styles.image}
+                contentFit="cover"
+              />
             </View>
           </View>
         )}
@@ -55,7 +59,6 @@ const styles = StyleSheet.create({
     width: imageW,
     height: imageH,
     borderRadius: 10,
-    resizeMode: "cover",
   },
   imageContainer: {
     shadowColor: "black",

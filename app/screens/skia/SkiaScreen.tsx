@@ -21,9 +21,7 @@ import {
 } from "./constants";
 import { RoundedItem } from "./RoundedItem";
 
-interface SkiaScreenProps {}
-
-export function SkiaScreen({}: SkiaScreenProps) {
+export function SkiaScreen() {
   const touchedPoint = useValue<{ x: number; y: number } | null>(null);
 
   const progress = useValue(0);
@@ -44,14 +42,7 @@ export function SkiaScreen({}: SkiaScreenProps) {
 
   return (
     <Screen noSafeArea>
-      <View
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          flex: 1,
-          backgroundColor: "black",
-        }}
-      >
+      <View style={styles.container}>
         <Canvas style={styles.canvas} onTouch={onTouch}>
           <Group>
             {Array(SQUARES_HORIZONTAL)
@@ -93,5 +84,11 @@ const styles = StyleSheet.create({
   canvas: {
     height: CANVAS_HEIGHT,
     width: SCREEN_WIDTH,
+  },
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    backgroundColor: "black",
   },
 });

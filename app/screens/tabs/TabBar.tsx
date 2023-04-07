@@ -27,7 +27,7 @@ export function TabBar({ offset }: TabBarProps) {
 
   const animatedStyle = useAnimatedStyle(() => {
     if (tabDimensions.length !== tabs.length) {
-      return { width: 0 };
+      return { width: 1 };
     }
 
     const inputRange = tabDimensions.map((_, index) => index);
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   indicator: {
-    height: 5,
+    height: 4,
     backgroundColor: "white",
     position: "absolute",
     bottom: -10,

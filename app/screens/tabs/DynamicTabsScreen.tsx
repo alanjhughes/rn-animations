@@ -23,7 +23,7 @@ export function DynamicTabsScreen({}: DynamicTabsScreenProps) {
   });
 
   return (
-    <Screen noSafeArea>
+    <Screen noSafeArea backgroundColor="black">
       <StatusBar hidden />
       <View style={styles.container}>
         <TabBar offset={offset} />
