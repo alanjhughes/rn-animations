@@ -5,10 +5,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Animated, {
-  useAnimatedProps,
   interpolate,
   Extrapolate,
   useAnimatedStyle,
+  useAnimatedProps,
 } from "react-native-reanimated";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
@@ -26,6 +26,19 @@ export function MastodanHeader({ offsetY, onBack }: MastodanHeaderProps) {
   const { width } = useWindowDimensions();
   const { top } = useSafeAreaInsets();
 
+  const animatedProps = useAnimatedProps(() => {
+    const blurRadius = interpolate(
+      offsetY.value,
+      [20, 100],
+      [0, 5],
+      Extrapolate.CLAMP,
+    );
+
+    return {
+      blurRadius,
+    };
+  });
+
   const bgImageStyle = useAnimatedStyle(() => {
     const scale = interpolate(offsetY.value, [0, -1], [1, 1.01], {
       extrapolateLeft: Extrapolate.CLAMP,
@@ -35,7 +48,7 @@ export function MastodanHeader({ offsetY, onBack }: MastodanHeaderProps) {
     const height = interpolate(
       offsetY.value,
       [0, 100],
-      [220, 105],
+      [220, 90],
       Extrapolate.CLAMP,
     );
 
@@ -46,28 +59,15 @@ export function MastodanHeader({ offsetY, onBack }: MastodanHeaderProps) {
     };
   });
 
-  const animatedProps = useAnimatedProps(() => {
-    const blurRadius = interpolate(
-      offsetY.value,
-      [0, 100],
-      [0, 10],
-      Extrapolate.CLAMP,
-    );
-
-    return {
-      blurRadius,
-    };
-  });
-
   const animatedAvatar = useAnimatedStyle(() => {
     const inputRange = [0, 100];
 
-    const avatarHeight = interpolate(offsetY.value, inputRange, [150, 40], {
+    const avatarHeight = interpolate(offsetY.value, inputRange, [160, 35], {
       extrapolateLeft: Extrapolate.EXTEND,
       extrapolateRight: Extrapolate.CLAMP,
     });
 
-    const translateY = interpolate(offsetY.value, inputRange, [25, 0], {
+    const translateY = interpolate(offsetY.value, inputRange, [40, 0], {
       extrapolateLeft: Extrapolate.EXTEND,
       extrapolateRight: Extrapolate.CLAMP,
     });
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   iconBg: {
-    width: 40,
+    width: 35,
     aspectRatio: 1,
     borderRadius: 20,
     backgroundColor: "rgba(0, 0, 0, 0.3)",
