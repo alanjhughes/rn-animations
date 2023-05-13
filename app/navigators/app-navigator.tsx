@@ -14,6 +14,7 @@ import {
   CarouselScreen,
   ToggleScreen,
   DynamicTabsScreen,
+  MastodanHeaderScreen,
 } from "screens";
 import { LottieScreen } from "screens/lottie/LottieScreen";
 
@@ -40,6 +41,7 @@ function AppStack() {
       <Stack.Screen name="carousel" component={CarouselScreen} />
       <Stack.Screen name="toggle" component={ToggleScreen} />
       <Stack.Screen name="tabs" component={DynamicTabsScreen} />
+      <Stack.Screen name="mastodan" component={MastodanHeaderScreen} />
     </Stack.Navigator>
   );
 }

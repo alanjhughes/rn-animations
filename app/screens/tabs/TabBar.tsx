@@ -32,6 +32,10 @@ export function TabBar({ offset }: TabBarProps) {
 
     const inputRange = tabDimensions.map((_, index) => index);
 
+    if (inputRange.length !== 4) {
+      return { width: 1 };
+    }
+
     const width = interpolate(
       offset.value,
       inputRange,
