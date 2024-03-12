@@ -1,13 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import {
-  Canvas,
-  Group,
-  LinearGradient,
-  runTiming,
-  useTouchHandler,
-  useValue,
-  vec,
-} from "@shopify/react-native-skia";
+import { Canvas, Group, LinearGradient, vec } from "@shopify/react-native-skia";
 import { Screen } from "components/screen/screen";
 import { color } from "theme";
 import {
@@ -20,62 +12,65 @@ import {
   SQUARE_SIZE,
 } from "./constants";
 import { RoundedItem } from "./RoundedItem";
+import { useSharedValue, withTiming } from "react-native-reanimated";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
 
 export function SkiaScreen() {
-  const touchedPoint = useValue<{ x: number; y: number } | null>(null);
+  const touchedPoint = useSharedValue<{ x: number; y: number } | null>(null);
+  const progress = useSharedValue(0);
 
-  const progress = useValue(0);
+  const onTouch = Gesture.Pan()
+    .onBegin(e => {
+      progress.value = withTiming(1, { duration: 300 });
+      touchedPoint.value = { x: e.x, y: e.y };
+    })
+    .onUpdate(e => {
+      touchedPoint.value = { x: e.x, y: e.y };
+    })
 
-  const onTouch = useTouchHandler({
-    onStart: e => {
-      runTiming(progress, 1, { duration: 300 });
-      touchedPoint.current = { x: e.x, y: e.y };
-    },
-    onActive: e => {
-      touchedPoint.current = { x: e.x, y: e.y };
-    },
-    onEnd: () => {
-      runTiming(progress, 0, { duration: 300 });
-      touchedPoint.current = null;
-    },
-  });
+    .onEnd(() => {
+      progress.value = withTiming(0, { duration: 300 });
+      touchedPoint.value = null;
+    });
 
   return (
     <Screen noSafeArea>
-      <View style={styles.container}>
-        <Canvas style={styles.canvas} onTouch={onTouch}>
-          <Group>
-            {Array(SQUARES_HORIZONTAL)
-              .fill(0)
-              .map((_, i) =>
-                Array(SQUARES_VERTICAL)
-                  .fill(0)
-                  .map((_, j) => (
-                    <RoundedItem
-                      progress={progress}
-                      point={touchedPoint}
-                      key={`i${i}-j${j}`}
-                      x={i * SQUARE_CONTAINER_SIZE + PADDING / 2}
-                      y={j * SQUARE_CONTAINER_SIZE + PADDING / 2}
-                      width={SQUARE_SIZE}
-                      height={SQUARE_SIZE}
-                    />
-                  )),
-              )}
-            <LinearGradient
-              start={vec(0, 0)}
-              end={vec(SCREEN_WIDTH, CANVAS_HEIGHT)}
-              colors={[
-                color.system.systemCyan,
-                color.system.systemYellow,
-                color.system.systemMint,
-                color.system.systemPink,
-                color.system.systemPurple,
-              ]}
-            />
-          </Group>
-        </Canvas>
-      </View>
+      <GestureDetector gesture={onTouch}>
+        <View style={styles.container}>
+          <Canvas style={styles.canvas}>
+            <Group>
+              {Array(SQUARES_HORIZONTAL)
+                .fill(0)
+                .map((_, i) =>
+                  Array(SQUARES_VERTICAL)
+                    .fill(0)
+                    .map((_, j) => (
+                      <RoundedItem
+                        progress={progress}
+                        point={touchedPoint}
+                        key={`i${i}-j${j}`}
+                        x={i * SQUARE_CONTAINER_SIZE + PADDING / 2}
+                        y={j * SQUARE_CONTAINER_SIZE + PADDING / 2}
+                        width={SQUARE_SIZE}
+                        height={SQUARE_SIZE}
+                      />
+                    )),
+                )}
+              <LinearGradient
+                start={vec(0, 0)}
+                end={vec(SCREEN_WIDTH, CANVAS_HEIGHT)}
+                colors={[
+                  color.system.systemCyan,
+                  color.system.systemYellow,
+                  color.system.systemMint,
+                  color.system.systemPink,
+                  color.system.systemPurple,
+                ]}
+              />
+            </Group>
+          </Canvas>
+        </View>
+      </GestureDetector>
     </Screen>
   );
 }

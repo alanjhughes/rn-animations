@@ -1,60 +1,62 @@
 import {
   Group,
-  useValue,
   RoundedRect,
-  SkiaMutableValue,
-  useComputedValue,
   interpolate,
   Extrapolate,
 } from "@shopify/react-native-skia";
 import React from "react";
 import { CANVAS_HEIGHT, MAX_DISTANCE, SCREEN_WIDTH } from "./constants";
+import {
+  SharedValue,
+  useDerivedValue,
+  useSharedValue,
+} from "react-native-reanimated";
 
 interface RoundedItemProps {
   x: number;
   y: number;
   width: number;
   height: number;
-  point: SkiaMutableValue<{ x: number; y: number } | null>;
-  progress: SkiaMutableValue<number>;
+  point: SharedValue<{ x: number; y: number } | null>;
+  progress: SharedValue<number>;
 }
 
 export const RoundedItem = React.memo(
   ({ point, progress, ...props }: RoundedItemProps) => {
     const { x, y } = props;
-    const previouDistance = useValue(0);
-    const previousTouchedPoint = useValue({
+    const previouDistance = useSharedValue(0);
+    const previousTouchedPoint = useSharedValue({
       x: SCREEN_WIDTH / 2,
       y: CANVAS_HEIGHT / 2,
     });
 
-    const distance = useComputedValue(() => {
-      if (point.current == null) return previouDistance.current;
-      previouDistance.current = Math.sqrt(
-        (point.current.x - x) ** 2 + (point.current.y - y) ** 2,
+    const distance = useDerivedValue(() => {
+      if (point.value == null) return previouDistance.value;
+      previouDistance.value = Math.sqrt(
+        (point.value.x - x) ** 2 + (point.value.y - y) ** 2,
       );
-      return previouDistance.current;
+      return previouDistance.value;
     }, [point]);
 
-    const scale = useComputedValue(() => {
+    const scale = useDerivedValue(() => {
       return interpolate(
-        distance.current * progress.current,
+        distance.value * progress.value,
         [0, MAX_DISTANCE / 2],
         [1, 0],
         Extrapolate.CLAMP,
       );
     }, [distance, progress]);
 
-    const transform = useComputedValue(() => {
-      return [{ scale: scale.current }];
+    const transform = useDerivedValue(() => {
+      return [{ scale: scale.value }];
     }, [scale]);
 
-    const origin = useComputedValue(() => {
-      if (point.current == null) {
-        return previousTouchedPoint.current;
+    const origin = useDerivedValue(() => {
+      if (point.value == null) {
+        return previousTouchedPoint.value;
       }
-      previousTouchedPoint.current = point.current;
-      return previousTouchedPoint.current;
+      previousTouchedPoint.value = point.value;
+      return previousTouchedPoint.value;
     }, [point]);
 
     return (

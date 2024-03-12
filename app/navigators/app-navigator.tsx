@@ -35,7 +35,11 @@ function AppStack() {
       <Stack.Screen name="sensor" component={AnimatedSensor} />
       <Stack.Screen name="drag" component={DragGestureScreen} />
       <Stack.Screen name="parallax" component={ParallaxScreen} />
-      <Stack.Screen name="skia" component={SkiaScreen} />
+      <Stack.Screen
+        name="skia"
+        component={SkiaScreen}
+        options={{ title: "Skia", headerShown: true }}
+      />
       <Stack.Screen name="legend" component={LegendStateScreen} />
       <Stack.Screen name="lottie" component={LottieScreen} />
       <Stack.Screen name="carousel" component={CarouselScreen} />

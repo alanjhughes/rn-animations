@@ -14,7 +14,7 @@ import { User } from "./ListAnimation.types";
 const { width, height } = Dimensions.get("screen");
 
 const AnimatedList = Animated.createAnimatedComponent(
-  FlashList<typeof data[0]>,
+  FlashList<(typeof data)[0]>,
 );
 
 interface ListAnimationProps {}

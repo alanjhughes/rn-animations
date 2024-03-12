@@ -18,7 +18,7 @@ interface UserItemProps {
 
 export function UserItem({ item, index, scrollY }: UserItemProps) {
   const animatedStyles = useAnimatedStyle(() => {
-    const scaleRange = [-1, 0, ITEM_HEIGHT * index, ITEM_HEIGHT * (index + 2)];
+    const scaleRange = [-1, 0, ITEM_HEIGHT * index, ITEM_HEIGHT * (index + 1)];
     const opacityRange = [
       -1,
       0,

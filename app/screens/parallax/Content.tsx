@@ -52,12 +52,12 @@ export function Content({}: ContentProps) {
               <AnimatedImage
                 source={item.bg}
                 style={[styles.bg, bgStyle]}
-                resizeMode="stretch"
+                contentFit="cover"
               />
               <AnimatedImage
                 source={item.fg}
                 style={[styles.fg, fgStyle]}
-                resizeMode="stretch"
+                contentFit="cover"
               />
             </View>
           </View>
