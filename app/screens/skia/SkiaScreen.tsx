@@ -19,23 +19,28 @@ export function SkiaScreen() {
   const touchedPoint = useSharedValue<{ x: number; y: number } | null>(null);
   const progress = useSharedValue(0);
 
-  const onTouch = Gesture.Pan()
-    .onBegin(e => {
-      progress.value = withTiming(1, { duration: 300 });
-      touchedPoint.value = { x: e.x, y: e.y };
-    })
-    .onUpdate(e => {
-      touchedPoint.value = { x: e.x, y: e.y };
-    })
+  const touch = Gesture.Tap().onEnd(() => {
+    progress.value = withTiming(0, { duration: 350 });
+    touchedPoint.value = null;
+  });
 
+  const pan = Gesture.Pan()
+    .onBegin(e => {
+      progress.value = withTiming(1, { duration: 350 });
+      touchedPoint.value = { x: e.x, y: e.y };
+    })
+    .onChange(e => {
+      touchedPoint.value = { x: e.x, y: e.y };
+    })
     .onEnd(() => {
-      progress.value = withTiming(0, { duration: 300 });
+      progress.value = withTiming(0, { duration: 350 });
       touchedPoint.value = null;
     });
 
+  const gesture = Gesture.Simultaneous(touch, pan);
   return (
     <Screen noSafeArea>
-      <GestureDetector gesture={onTouch}>
+      <GestureDetector gesture={gesture}>
         <View style={styles.container}>
           <Canvas style={styles.canvas}>
             <Group>
