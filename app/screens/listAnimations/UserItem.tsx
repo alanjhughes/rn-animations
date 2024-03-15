@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import Animated, {
+  SharedValue,
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
@@ -13,7 +14,7 @@ const ITEM_HEIGHT = IMAGE_SIZE + SPACING * 3;
 interface UserItemProps {
   item: User;
   index: number;
-  scrollY: Animated.SharedValue<number>;
+  scrollY: SharedValue<number>;
 }
 
 export function UserItem({ item, index, scrollY }: UserItemProps) {

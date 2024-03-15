@@ -1,5 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 import Animated, {
+  SharedValue,
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
@@ -8,7 +9,7 @@ const { width } = Dimensions.get("screen");
 
 interface BgImageProps {
   index: number;
-  scrollX: Animated.SharedValue<number>;
+  scrollX: SharedValue<number>;
   uri: string;
 }
 
@@ -25,6 +26,7 @@ export function BgImage({ index, scrollX, uri }: BgImageProps) {
       opacity,
     };
   });
+
   return (
     <Animated.Image
       key={index}

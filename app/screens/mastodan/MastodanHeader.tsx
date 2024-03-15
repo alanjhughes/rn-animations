@@ -6,9 +6,10 @@ import {
 } from "react-native";
 import Animated, {
   interpolate,
-  Extrapolate,
+  Extrapolation,
   useAnimatedStyle,
   useAnimatedProps,
+  SharedValue,
 } from "react-native-reanimated";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
@@ -18,7 +19,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 const avatar = faker.image.avatar();
 
 interface MastodanHeaderProps {
-  offsetY: Animated.SharedValue<number>;
+  offsetY: SharedValue<number>;
   onBack: () => void;
 }
 
@@ -31,7 +32,7 @@ export function MastodanHeader({ offsetY, onBack }: MastodanHeaderProps) {
       offsetY.value,
       [20, 100],
       [0, 5],
-      Extrapolate.CLAMP,
+      Extrapolation.CLAMP,
     );
 
     return {
@@ -41,15 +42,15 @@ export function MastodanHeader({ offsetY, onBack }: MastodanHeaderProps) {
 
   const bgImageStyle = useAnimatedStyle(() => {
     const scale = interpolate(offsetY.value, [0, -1], [1, 1.01], {
-      extrapolateLeft: Extrapolate.CLAMP,
-      extrapolateRight: Extrapolate.EXTEND,
+      extrapolateLeft: Extrapolation.CLAMP,
+      extrapolateRight: Extrapolation.EXTEND,
     });
 
     const height = interpolate(
       offsetY.value,
       [0, 100],
       [220, 90],
-      Extrapolate.CLAMP,
+      Extrapolation.CLAMP,
     );
 
     return {
@@ -63,20 +64,20 @@ export function MastodanHeader({ offsetY, onBack }: MastodanHeaderProps) {
     const inputRange = [0, 100];
 
     const avatarHeight = interpolate(offsetY.value, inputRange, [160, 35], {
-      extrapolateLeft: Extrapolate.EXTEND,
-      extrapolateRight: Extrapolate.CLAMP,
+      extrapolateLeft: Extrapolation.EXTEND,
+      extrapolateRight: Extrapolation.CLAMP,
     });
 
     const translateY = interpolate(offsetY.value, inputRange, [40, 0], {
-      extrapolateLeft: Extrapolate.EXTEND,
-      extrapolateRight: Extrapolate.CLAMP,
+      extrapolateLeft: Extrapolation.EXTEND,
+      extrapolateRight: Extrapolation.CLAMP,
     });
 
     const borderWidth = interpolate(
       offsetY.value,
       inputRange,
       [5, 0],
-      Extrapolate.CLAMP,
+      Extrapolation.CLAMP,
     );
 
     const left = width / 2 - avatarHeight / 2;
