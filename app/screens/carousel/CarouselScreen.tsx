@@ -1,7 +1,6 @@
-import { View, StyleSheet, Dimensions, StatusBar } from "react-native";
+import { View, Image, StyleSheet, Dimensions, StatusBar } from "react-native";
 import { Screen } from "components/screen";
 import { imageUrls } from "./data";
-import { Image } from "expo-image";
 import Animated, {
   useAnimatedScrollHandler,
   useSharedValue,
@@ -41,11 +40,7 @@ export function CarouselScreen({}: CarouselScreenProps) {
         renderItem={({ item }) => (
           <View style={styles.item}>
             <View style={styles.imageContainer}>
-              <Image
-                source={{ uri: item }}
-                style={styles.image}
-                contentFit="cover"
-              />
+              <Image source={{ uri: item }} style={styles.image} />
             </View>
           </View>
         )}

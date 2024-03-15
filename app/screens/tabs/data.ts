@@ -1,15 +1,15 @@
 export const tabs = [
   {
     name: "Men",
-    image: require("assets/tabs/men.jpg"),
+    image: require("assets/tabs/Men.jpg"),
   },
   {
     name: "Women",
-    image: require("assets/tabs/women.jpg"),
+    image: require("assets/tabs/Women.jpg"),
   },
   {
     name: "Kids",
-    image: require("assets/tabs/kids.jpg"),
+    image: require("assets/tabs/Kids.jpg"),
   },
   {
     name: "Home & Living",
